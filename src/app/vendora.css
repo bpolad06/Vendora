@@ -2104,3 +2104,32 @@
     font-size: 9px;
   }
 }
+
+/* Original Vendora identity, shared across storefront and account panels. */
+.v-brand > span:first-child {
+  background: white;
+  border-radius: 0;
+}
+.v-logo-mark {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.v-brand-full {
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+}
+.v-full-logo {
+  display: block;
+  width: 150px;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .v-auth-story > .v-brand-full {
+    padding: 6px;
+  }
+  .v-auth-story .v-full-logo {
+    width: 100px;
+  }
+}

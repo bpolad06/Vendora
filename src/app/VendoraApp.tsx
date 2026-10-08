@@ -104,13 +104,23 @@ function Guard({ role }: { role: Role }) {
   if (user.role !== role) return <Navigate to={roleHome(user.role)} replace />;
   return <Outlet />;
 }
-function Brand() {
+function Brand({ full = false }: { full?: boolean }) {
   return (
-    <Link to="/" className="v-brand">
-      <span>
-        <Store size={22} />
-      </span>
-      vendora<span className="v-brand-dot">.</span>
+    <Link
+      to="/"
+      className={full ? 'v-brand v-brand-full' : 'v-brand'}
+      aria-label="Vendora ana səhifə"
+    >
+      {full ? (
+        <img className="v-full-logo" src="/logo.png" alt="Vendora — Your Marketplace Partner" />
+      ) : (
+        <>
+          <span>
+            <img className="v-logo-mark" src="/logo-mark.png" alt="" />
+          </span>
+          Vendora
+        </>
+      )}
     </Link>
   );
 }
@@ -746,7 +756,7 @@ function AuthPage({ signup = false }: { signup?: boolean }) {
   return (
     <div className="v-app v-auth-page">
       <div className="v-auth-story">
-        <Brand />
+        <Brand full />
         <div>
           <span className="v-hero-badge">YERLİ BİZNESİN YENİ ÜNVANI</span>
           <h1>
